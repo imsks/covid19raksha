@@ -34,3 +34,5 @@ yarn-error.log*
 .vercel
 firebase-debug.log
 .github
+.env.development
+.env.production
