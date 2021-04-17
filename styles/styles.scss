@@ -5,6 +5,7 @@
 @import 'base/typography';
 
 @import 'layouts/navbar.scss';
+@import 'layouts/footer.scss';
 
 @import 'components/buttons';
 @import 'components/form';
@@ -12,6 +13,4 @@
 @import 'sections/task-success.scss';
 
 @import 'pages/homepage';
-@import 'pages/auth';
-@import 'pages/admin/dashboard.scss';
-@import 'pages/admin/register.scss';
+@import 'pages/raise';

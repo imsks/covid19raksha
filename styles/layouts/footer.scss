@@ -1,0 +1,45 @@
+.footer {
+  background-color: $color-black;
+  padding: 1.5rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  &__content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &__about {
+      &__paragraph {
+        color: $color-white;
+        font-size: 1.2rem;
+
+        &__link {
+          color: $color-white;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &__links {
+      width: 20%;
+      display: flex;
+      justify-content: space-evenly;
+
+      &__item {
+        color: $color-white;
+        font-size: 1.2rem;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

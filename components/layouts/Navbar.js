@@ -4,21 +4,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__logo">
-        <a href="/" className="navbar__logo__link">The Skill Shop</a>
-      </div>
-      <div className="navbar__links">
-        {/* <a href="/post" className="navbar__links__item">
-          Create Post
-        </a>
-        <a href="/job" className="navbar__links__item">
-          Create Job Posting
-        </a>
-        <a href="#" className="navbar__links__item">
-          Ask HN
-        </a> */}
-        <a href="/admin/auth">
-          <button className="btn btn-sm navbar__links__button">Login</button>
-        </a>
+        <a href="/" className="navbar__logo__link">Covid 19 Raksha</a>
       </div>
     </nav>
   );
