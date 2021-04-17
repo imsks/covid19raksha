@@ -1,5 +1,7 @@
+import Link from 'next/link'
+
 const Homepage = () => {
-  return <a href="/about">Next Page</a>;
+  return <Link href="/about">Next Page</Link>;
 };
 
 export default Homepage;
