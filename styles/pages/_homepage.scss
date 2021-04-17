@@ -1,7 +1,7 @@
 .homepage {
   &__container {
     &__content {
-      padding: 15rem 5rem;
+      padding: 10rem 5rem;
 
       &__hero {
         width: 60%;
@@ -9,7 +9,7 @@
 
         &__content {
           &__heading {
-            font-size: 7rem;
+            font-size: 6rem;
             font-weight: 800;
             text-align: center;
           }
@@ -37,6 +37,39 @@
               background-color: transparent;
               border: 2px solid $color-secondary;
               color: $color-secondary;
+            }
+          }
+        }
+      }
+
+      &__footer {
+        margin: 10rem 0 0 0 ;
+        
+        &__content {
+          background-color: $color-secondary;
+          box-shadow: 3px 3px 20px #bbbbbb;
+          padding: 5rem 0;
+          border-radius: 10px;
+          width: 50%;
+          margin: auto;
+          display: flex;
+          justify-content: space-evenly;
+
+          &__text {
+            &__heading {
+
+            }
+
+            &__paragraph {
+              color: $color-grey;
+            }
+          }
+
+          &__action {
+            &__button {
+              background-color: transparent;
+              border: 2px solid $color-white;
+              color: $color-white;
             }
           }
         }

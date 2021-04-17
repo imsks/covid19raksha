@@ -35,6 +35,26 @@ const Homepage = () => {
               </div>
             </div>
           </div>
+
+          <div className="homepage__container__content__footer">
+            <div className="homepage__container__content__footer__content">
+              <div className="homepage__container__content__footer__content__text">
+                <h3 className="heading-main homepage__container__content__footer__content__text__heading">
+                  Want to be a plasma donar?
+                </h3>
+                <p className="paragraph homepage__container__content__footer__content__text__paragraph">
+                  You could share your details someone in need would contact
+                  you.
+                </p>
+              </div>
+
+              <div className="homepage__container__content__footer__content__action">
+                <button className="btn btn-md homepage__container__content__footer__content__action__button">
+                  Ready to help?
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
