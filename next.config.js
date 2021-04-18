@@ -5,14 +5,12 @@ module.exports = {
   ) {
     return {
       "/": { page: "/" },
-      "/about": { page: "/about" },
-      "/about": { page: "/about" },
-      "/about": { page: "/about" },
-      "/about": { page: "/about" },
-      "/about": { page: "/about" },
-      "/about": { page: "/about" },
-      "/about": { page: "/about" },
-      "/about": { page: "/about" },
+      "/view-plasma-doners": { page: "/view-plasma-doners" },
+      "/raise": { page: "/raise" },
+      "/view-plasma-requests": { page: "/view-plasma-requests" },
+      "/register-doner": { page: "/register-doner" },
+      "/request-add-city": { page: "/request-add-city" },
+      "/remove-my-request": { page: "/remove-my-request" },
     };
   },
   env: {
