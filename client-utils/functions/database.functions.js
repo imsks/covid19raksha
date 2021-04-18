@@ -18,6 +18,14 @@ export const raiseRequestAddCity = async (requestRequestAddCityDataPayload) => {
   });
 };
 
+export const raiseRemoveMyRequest = async (
+  requestRemoveMyRequestDataPayload
+) => {
+  return await addCityRequestCollection.add({
+    ...requestRemoveMyRequestDataPayload,
+  });
+};
+
 export const joinAsPlasmaDoner = async (joiningDonerDataPayload) => {
   return await plasmaDonersCollection.add({
     ...joiningDonerDataPayload,
@@ -30,6 +38,37 @@ export const searchPlasmaRequestsByCity = async (city) => {
     "==",
     city
   );
+
+  const searchResultsPayload = [];
+
+  const allSearchResult = await searchResponse.get();
+
+  if (allSearchResult.empty) {
+    return searchResultsPayload;
+  }
+
+  allSearchResult.docs.forEach((queryDocumentReference) => {
+    const {
+      name,
+      city,
+      bloodGroup,
+      primaryContactNo,
+      secondaryContactNo,
+    } = queryDocumentReference.data();
+    searchResultsPayload.push({
+      name,
+      city,
+      bloodGroup,
+      primaryContactNo,
+      secondaryContactNo,
+    });
+  });
+
+  return searchResultsPayload;
+};
+
+export const searchPlasmaDonersByCity = async (city) => {
+  const searchResponse = await plasmaDonersCollection.where("city", "==", city);
 
   const searchResultsPayload = [];
 

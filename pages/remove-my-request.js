@@ -1,44 +1,44 @@
 import { useState } from "react";
 import Navbar from "components/layouts/Navbar";
 import { FormLabelInputGroup } from "components/sections/FormElements";
-import { raiseRequestAddCity } from "client-utils/functions/database.functions";
+import { raiseRemoveMyRequest } from "client-utils/functions/database.functions";
 import SuccessContainer from "components/sections/SuccessContainer";
 
-const RequestAddCity = () => {
+const RemoveMyRequest = () => {
   const [city, setCity] = useState(null);
   const [
     isRequestRaiseButtonClicked,
-    setIsRequestAddCityRaiseButtonClicked,
+    setIsRemoveMyRequestRaiseButtonClicked,
   ] = useState(false);
   const [formError, setFormError] = useState(null);
-  const [isRequestRaised, setIsRequestAddCityRaised] = useState(false);
+  const [isRequestRaised, setIsRemoveMyRequestRaised] = useState(false);
 
-  const handleRequestAddCityRequest = async (event) => {
+  const handleRemoveMyRequestRequest = async (event) => {
     event.preventDefault();
     setFormError(null);
-    setIsRequestAddCityRaised(false);
-    setIsRequestAddCityRaiseButtonClicked(true);
+    setIsRemoveMyRequestRaised(false);
+    setIsRemoveMyRequestRaiseButtonClicked(true);
 
     // Check if all fields are filled correctly
     if (!city) {
       setFormError("Please provide your city");
-      setIsRequestAddCityRaiseButtonClicked(false);
+      setIsRemoveMyRequestRaiseButtonClicked(false);
       return;
     }
 
-    const requestRaiseResponse = await raiseRequestAddCity({
+    const requestRaiseResponse = await raiseRemoveMyRequest({
       city,
       addedOn: new Date(Date.now()),
     });
 
-    if (requestRaiseResponse) setIsRequestAddCityRaised(true);
+    if (requestRaiseResponse) setIsRemoveMyRequestRaised(true);
     else {
       setFormError("Something went wrong. Please try again");
-      setIsRequestAddCityRaiseButtonClicked(false);
+      setIsRemoveMyRequestRaiseButtonClicked(false);
     }
   };
 
-  const handleSetCity = (event) => {
+  const handleRemoveRequest = (event) => {
     setCity(event.target.value);
   };
 
@@ -49,17 +49,17 @@ const RequestAddCity = () => {
       <div className="requestcontentmanage__container">
         <div className="requestcontentmanage__container__content">
           {!isRequestRaised ? (
-            <RequestAddCityContainer
-              handleSetCity={handleSetCity}
+            <RemoveMyRequestContainer
+              handleRemoveRequest={handleRemoveRequest}
               isRequestRaiseButtonClicked={isRequestRaiseButtonClicked}
-              handleRequestAddCityRequest={handleRequestAddCityRequest}
+              handleRemoveMyRequestRequest={handleRemoveMyRequestRequest}
               formError={formError}
             />
           ) : (
             <div className="requestcontentmanage__container__content__header">
               <SuccessContainer
-                heading="Your request for adding city has been raised successfully."
-                paragraph="We'll be adding it ASAP"
+                heading="Your request for removing your request has been raised successfully."
+                paragraph="We'll be removing it ASAP"
                 redirectUrl="/"
               />
             </div>
@@ -70,39 +70,41 @@ const RequestAddCity = () => {
   );
 };
 
-export default RequestAddCity;
+export default RemoveMyRequest;
 
-const RequestAddCityContainer = ({
-  handleSetCity,
+const RemoveMyRequestContainer = ({
+  handleRemoveRequest,
   isRequestRaiseButtonClicked,
-  handleRequestAddCityRequest,
+  handleRemoveMyRequestRequest,
   formError,
 }) => {
   return (
     <>
       <div className="requestcontentmanage__container__content__header">
         <h3 className="heading-sub requestcontentmanage__container__content__header__heading">
-          Request for adding your city
+          Request for removing your request
         </h3>
         <p className="paragraph requestcontentmanage__container__content__header__paragraph">
-          If you can't see your city while raising a request, fill this form and
-          we'll try to add this ASAP
+          Simply provide the primary contact no you added when raising your
+          request
         </p>
       </div>
 
       <div className="requestcontentmanage__container__content__main">
         <form className="form requestcontentmanage__container__content__main__form">
           <FormLabelInputGroup
-            label="Enter your city *"
+            label="Enter your primary contact *"
             inputType="text"
-            handleInput={handleSetCity}
+            handleInput={handleRemoveRequest}
             required={true}
           />
           <button
             className="btn btn-md form__submit"
-            onClick={handleRequestAddCityRequest}
+            onClick={handleRemoveMyRequestRequest}
           >
-            {!isRequestRaiseButtonClicked ? "Request add city" : "Requesting"}
+            {!isRequestRaiseButtonClicked
+              ? "Request data removal"
+              : "Requesting"}
           </button>
         </form>
         <p className="form__error requestcontentmanage__container__content__main__form__error">

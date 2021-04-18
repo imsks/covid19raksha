@@ -37,14 +37,9 @@ const HomepageHero = () => {
       </div>
       <div className="homepage__container__content__hero__action">
         <div className="homepage__container__content__hero__action__buttons">
-          <Link href="/find">
+          <Link href="/view-plasma-doners">
             <button className="btn btn-md homepage__container__content__hero__action__buttons__primary">
               Search plasma donars
-            </button>
-          </Link>
-          <Link href="/raise">
-            <button className="btn btn-md homepage__container__content__hero__action__buttons__secondary">
-              Raise a request
             </button>
           </Link>
         </div>

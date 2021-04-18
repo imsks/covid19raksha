@@ -5,7 +5,7 @@ import { FormLabelSelectGroup } from "components/sections/FormElements";
 import { searchPlasmaRequestsByCity } from "client-utils/functions/database.functions";
 import Link from "next/link";
 
-const ViewPlasmaRequests = () => {
+const ViewPlasmaDoners = () => {
   const [allPlasmaRequests, setAllPlasmaRequests] = useState([]);
   const [isSearchLoaded, setIsSearchLoaded] = useState(false);
 
@@ -72,7 +72,7 @@ const ViewPlasmaRequests = () => {
                         );
 
                         return (
-                          <PlasmaRequestDataContainer
+                          <PlasmaDonerDataContainer
                             name={name}
                             bloodGroup={bloodGroup}
                             city={city}
@@ -87,9 +87,9 @@ const ViewPlasmaRequests = () => {
                         <p className="paragraph viewplasmausers__container__content__main__results__container__result__text">
                           No plasma request found
                         </p>
-                        <Link href="/">
-                          <button className="btn btn-md viewplasmausers__container__content__main__results__container__result__button">
-                            Back to home
+                        <Link href="/raise">
+                          <button className="btn btn-md viewplasmausers__container__content__main__results__container__result__button__primary">
+                            Raise a request
                           </button>
                         </Link>
                       </div>
@@ -105,9 +105,9 @@ const ViewPlasmaRequests = () => {
   );
 };
 
-export default ViewPlasmaRequests;
+export default ViewPlasmaDoners;
 
-const PlasmaRequestDataContainer = ({
+const PlasmaDonerDataContainer = ({
   name,
   bloodGroup,
   city,
