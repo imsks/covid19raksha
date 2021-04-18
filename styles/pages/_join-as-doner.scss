@@ -1,0 +1,43 @@
+.joinasdoner {
+    &__container {
+      &__content {
+        padding: 5rem;
+  
+        &__header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+  
+          &__paragraph {
+            margin: 0.5rem 0 0 0;
+          }
+        }
+  
+        &__main {
+          width: 30%;
+          margin: auto;
+  
+          &__form {
+            &__group {
+            }
+  
+            &__label {
+            }
+  
+            &__input {
+            }
+  
+            &__paragraph {
+              font-size: 1.3rem;
+              align-self: baseline;
+            }
+  
+            &__error {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+  

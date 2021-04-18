@@ -1,7 +1,7 @@
 import React from "react";
 
 const SuccessContainer = (props) => {
-  const { heading, paragraph, redirectUrl } = props;
+  const { heading, paragraph, redirectUrl, ctaText = "Back to home" } = props;
 
   return (
     <div className="tasksuccess">
@@ -18,7 +18,7 @@ const SuccessContainer = (props) => {
         </p>
         <a href={redirectUrl}>
           <button className="btn btn-md tasksuccess__container__button">
-            Back to home
+            {ctaText}
           </button>
         </a>
       </div>

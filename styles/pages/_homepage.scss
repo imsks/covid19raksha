@@ -43,21 +43,20 @@
       }
 
       &__footer {
-        margin: 10rem 0 0 0 ;
-        
+        margin: 10rem 0 0 0;
+
         &__content {
           background-color: $color-secondary;
           box-shadow: 3px 3px 20px #bbbbbb;
-          padding: 5rem 0;
+          padding: 6rem 0;
           border-radius: 10px;
-          width: 50%;
+          width: 60%;
           margin: auto;
           display: flex;
           justify-content: space-evenly;
 
           &__text {
             &__heading {
-
             }
 
             &__paragraph {
@@ -66,10 +65,20 @@
           }
 
           &__action {
+            width: 35%;
+            display: flex;
+            justify-content: space-between;
+
             &__button {
               background-color: transparent;
               border: 2px solid $color-white;
               color: $color-white;
+
+              &__primary {
+                background-color: $color-primary;
+                color: $color-white;
+                border: 2px solid $color-primary;
+              }
             }
           }
         }
