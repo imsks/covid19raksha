@@ -2,9 +2,9 @@ import React from "react";
 
 const FindPlasmaDonars = () => {
   return (
-    <div>
+    <main>
       <h1>Find Plasma Donars</h1>
-    </div>
+    </main>
   );
 };
 

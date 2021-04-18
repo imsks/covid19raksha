@@ -7,31 +7,54 @@ const addCityRequestCollection = db.collection("add-city-requests");
 const plasmaDonersCollection = db.collection("plasma-doners");
 
 export const raiseRequestForPlasma = async (requestRaiserDataPayload) => {
-  return await plasmaRequestCollection
-    .add({
-      ...requestRaiserDataPayload,
-    })
-    .then((document) => {
-      return document.id;
-    });
+  return await plasmaRequestCollection.add({
+    ...requestRaiserDataPayload,
+  });
 };
 
 export const raiseRequestAddCity = async (requestRequestAddCityDataPayload) => {
-  return await addCityRequestCollection
-    .add({
-      ...requestRequestAddCityDataPayload,
-    })
-    .then((document) => {
-      return document.id;
-    });
+  return await addCityRequestCollection.add({
+    ...requestRequestAddCityDataPayload,
+  });
 };
 
 export const joinAsPlasmaDoner = async (joiningDonerDataPayload) => {
-  return await plasmaDonersCollection
-    .add({
-      ...joiningDonerDataPayload,
-    })
-    .then((document) => {
-      return document.id;
+  return await plasmaDonersCollection.add({
+    ...joiningDonerDataPayload,
+  });
+};
+
+export const searchPlasmaRequestsByCity = async (city) => {
+  const searchResponse = await plasmaRequestCollection.where(
+    "city",
+    "==",
+    city
+  );
+
+  const searchResultsPayload = [];
+
+  const allSearchResult = await searchResponse.get();
+
+  if (allSearchResult.empty) {
+    return searchResultsPayload;
+  }
+
+  allSearchResult.docs.forEach((queryDocumentReference) => {
+    const {
+      name,
+      city,
+      bloodGroup,
+      primaryContactNo,
+      secondaryContactNo,
+    } = queryDocumentReference.data();
+    searchResultsPayload.push({
+      name,
+      city,
+      bloodGroup,
+      primaryContactNo,
+      secondaryContactNo,
     });
+  });
+
+  return searchResultsPayload;
 };

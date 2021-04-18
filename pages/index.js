@@ -67,7 +67,7 @@ const HompageFooter = () => {
         </div>
 
         <div className="homepage__container__content__footer__content__action">
-          <Link href="/requests">
+          <Link href="/view-plasma-requests">
             <button className="btn btn-md homepage__container__content__footer__content__action__button__primary">
               View requests
             </button>
