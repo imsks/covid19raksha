@@ -25,7 +25,6 @@
     color: $color-grey;
 
     @include respond(small-phone) {
-      margin-left: 2rem;
       font-size: 1.8rem;
     }
   }

@@ -9,6 +9,10 @@
     padding: 6rem 8rem;
     border: 2px solid $color-primary;
 
+    @include respond(phone) {
+      padding: 3rem 1rem;
+    }
+
     &__image {
       width: 15rem;
     }

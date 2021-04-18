@@ -3,15 +3,37 @@
     &__content {
       padding: 10rem 5rem;
 
+      @include respond(tab-land) {
+        padding: 0;
+      }
+
       &__hero {
         width: 50%;
         margin: auto;
+
+        @include respond(tab-land) {
+          padding: 5rem 0;
+          width: 80%;
+        }
+
+        @include respond(tab-port) {
+          width: 90%;
+        }
+
+        @include respond(phone) {
+          width: 95%;
+        }
 
         &__content {
           &__heading {
             font-size: 6rem;
             font-weight: 800;
             text-align: center;
+
+            @include respond(phone) {
+              font-size: 5rem;
+              font-weight: 800;
+            }
           }
 
           &__paragraph {
@@ -31,7 +53,6 @@
               background-color: $color-primary;
               color: $color-white;
               border: 2px solid $color-primary;
-              margin: 0 2rem 0 0;
             }
             &__secondary {
               background-color: transparent;
@@ -45,22 +66,51 @@
       &__footer {
         margin: 10rem 0 0 0;
 
+        @include respond(tab-land) {
+          margin: 0;
+          padding: 5rem 0;
+        }
+
         &__content {
           background-color: $color-secondary;
           box-shadow: 3px 3px 20px #bbbbbb;
           padding: 6rem 0;
           border-radius: 10px;
-          width: 60%;
+          width: 80%;
           margin: auto;
           display: flex;
           justify-content: space-evenly;
 
+          @include respond(tab-land) {
+            width: 90%;
+            padding: 5rem 0;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          @include respond(phone) {
+            width: 100%;
+            border-radius: 0;
+            padding: 3rem 0 7rem 0;
+          }
+
           &__text {
+            @include respond(tab-port) {
+              padding: 0 3rem;
+            }
+
             &__heading {
+              @include respond(tab-port) {
+                text-align: center;
+              }
             }
 
             &__paragraph {
               color: $color-grey;
+
+              @include respond(tab-port) {
+                text-align: center;
+              }
             }
           }
 
@@ -68,6 +118,21 @@
             width: 35%;
             display: flex;
             justify-content: space-between;
+
+            @include respond(tab-land) {
+              width: 50%;
+              padding: 2rem 0 0 0;
+              justify-content: space-evenly;
+            }
+
+            @include respond(tab-port) {
+              width: 70%;
+            }
+
+            @include respond(phone) {
+              width: 90%;
+              flex-direction: column;
+            }
 
             &__button {
               background-color: transparent;
@@ -78,6 +143,10 @@
                 background-color: $color-primary;
                 color: $color-white;
                 border: 2px solid $color-primary;
+
+                @include respond(phone) {
+                  margin: 0 0 1rem 0;
+                }
               }
             }
           }

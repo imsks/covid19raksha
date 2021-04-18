@@ -17,7 +17,26 @@
         width: 30%;
         margin: auto;
 
+        @include respond(tab-port) {
+          width: 50%;
+        }
+
+        @include respond(phone) {
+          width: 80%;
+          padding: 3rem 0;
+        }
+
+        @include respond(small-phone) {
+          width: 90%;
+          padding: 3rem 0;
+        }
+
         &__form {
+          @include respond(tab-land) {
+            width: 100%;
+            margin: auto;
+          }
+
           &__group {
           }
 

@@ -5,6 +5,10 @@
   bottom: 0;
   width: 100%;
 
+  @include respond(phone) {
+    position: relative;
+  }
+
   &__content {
     display: flex;
     justify-content: space-evenly;
@@ -30,6 +34,10 @@
       width: 20%;
       display: flex;
       justify-content: space-evenly;
+
+      @include respond(tab-port) {
+        width: 50%;
+      }
 
       &__item {
         color: $color-white;
