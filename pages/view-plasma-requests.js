@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useState } from "react";
 import { cityNames } from "client-utils/constants";
 import Navbar from "components/layouts/Navbar";
@@ -22,6 +23,17 @@ const ViewPlasmaRequests = () => {
 
   return (
     <main className="viewplasmausers">
+      <Head>
+        <title>View Plasma Requests | Covid 19 Raksha</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="View Plasma Requests | Covid 19 Raksha" key="title" />
+        <meta
+          property="og:description"
+          content="Covid 19 Raksha helps you find plasma donors in your city"
+          key="title"
+        />
+      </Head>
+
       <Navbar />
 
       <div className="viewplasmausers__container">
@@ -63,7 +75,7 @@ const ViewPlasmaRequests = () => {
                           primaryContactNo,
                           secondaryContactNo,
                         } = plasmaRequest;
-                        
+
                         return (
                           <PlasmaRequestDataContainer
                             name={name}

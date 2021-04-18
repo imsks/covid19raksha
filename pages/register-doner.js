@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import Link from "next/link";
+import Head from "next/head";
 import Navbar from "components/layouts/Navbar";
-import { bloodGroupNames, cityNames } from "client-utils/constants";
 import SuccessContainer from "components/sections/SuccessContainer";
-import {
-  FormLabelInputGroup,
-  FormLabelSelectGroup,
-} from "components/sections/FormElements";
 import { joinAsPlasmaDoner } from "client-utils/functions/database.functions";
 import { JoinAsDonerForm } from "components/sections/PageComponents";
 
@@ -89,6 +84,17 @@ const RegisterDoner = () => {
 
   return (
     <main className="joinasdoner">
+      <Head>
+        <title>Register as donor | Covid 19 Raksha</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="Register as donor | Covid 19 Raksha" key="title" />
+        <meta
+          property="og:description"
+          content="Covid 19 Raksha helps you find plasma donors in your city"
+          key="title"
+        />
+      </Head>
+
       <Navbar />
 
       <div className="joinasdoner__container">

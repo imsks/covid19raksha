@@ -1,11 +1,13 @@
+import { bloodGroupNames, cityNames } from "client-utils/constants";
 import Link from "next/link";
+import { FormLabelInputGroup, FormLabelSelectGroup } from "./FormElements";
 
 export const HomepageHero = () => {
   return (
     <div className="homepage__container__content__hero">
       <div className="homepage__container__content__hero__content">
         <h1 className="heading-main homepage__container__content__hero__content__heading">
-          Find plasma donors & Covid medicines in your city in 30 seconds
+          Find plasma donors in your city in 30 seconds
         </h1>
         <p className="paragraph homepage__container__content__hero__content__paragraph">
           You can easily find plasma donors in your city and even if you can't,

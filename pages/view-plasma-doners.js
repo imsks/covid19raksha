@@ -1,8 +1,9 @@
+import Head from "next/head";
 import React, { useState } from "react";
 import { cityNames } from "client-utils/constants";
 import Navbar from "components/layouts/Navbar";
 import { FormLabelSelectGroup } from "components/sections/FormElements";
-import { searchPlasmaRequestsByCity } from "client-utils/functions/database.functions";
+import { searchPlasmaDonersByCity } from "client-utils/functions/database.functions";
 import Link from "next/link";
 
 const ViewPlasmaDoners = () => {
@@ -13,7 +14,7 @@ const ViewPlasmaDoners = () => {
     const city = event.target.value;
     setIsSearchLoaded(false);
 
-    const responseSearchPlasmaRequests = await searchPlasmaRequestsByCity(city);
+    const responseSearchPlasmaRequests = await searchPlasmaDonersByCity(city);
 
     setAllPlasmaRequests(responseSearchPlasmaRequests);
     setIsSearchLoaded(true);
@@ -21,13 +22,24 @@ const ViewPlasmaDoners = () => {
 
   return (
     <main className="viewplasmausers">
+      <Head>
+        <title>View plasma donors | Covid 19 Raksha</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="View plasma donors | Covid 19 Raksha" key="title" />
+        <meta
+          property="og:description"
+          content="Covid 19 Raksha helps you find plasma donors in your city"
+          key="title"
+        />
+      </Head>
+
       <Navbar />
 
       <div className="viewplasmausers__container">
         <div className="viewplasmausers__container__content">
           <div className="viewplasmausers__container__content__header">
             <h3 className="heading-sub viewplasmausers__container__content__header__heading">
-              View plasma requests
+              View plasma donors
             </h3>
             <p className="paragraph viewplasmausers__container__content__header__paragraph">
               Search city-wise and if anyone is in need, connect with them.

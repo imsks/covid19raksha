@@ -6,6 +6,13 @@ module.exports = {
     return {
       "/": { page: "/" },
       "/about": { page: "/about" },
+      "/about": { page: "/about" },
+      "/about": { page: "/about" },
+      "/about": { page: "/about" },
+      "/about": { page: "/about" },
+      "/about": { page: "/about" },
+      "/about": { page: "/about" },
+      "/about": { page: "/about" },
     };
   },
   env: {

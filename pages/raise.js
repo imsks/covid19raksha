@@ -1,12 +1,7 @@
-import Link from "next/link";
+import Head from "next/head";
 import { useState } from "react";
 import Navbar from "components/layouts/Navbar";
-import {
-  FormLabelInputGroup,
-  FormLabelSelectGroup,
-} from "components/sections/FormElements";
 import { raiseRequestForPlasma } from "client-utils/functions/database.functions";
-import { bloodGroupNames, cityNames } from "client-utils/constants";
 import SuccessContainer from "components/sections/SuccessContainer";
 import { RaiseRequestForm } from "components/sections/PageComponents";
 
@@ -92,6 +87,16 @@ const RaisePlasmaRequests = () => {
 
   return (
     <main className="raiserequest">
+      <Head>
+        <title>Raise plasma request | Covid 19 Raksha</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="Raise plasma request | Covid 19 Raksha" key="title" />
+        <meta
+          property="og:description"
+          content="Covid 19 Raksha helps you find plasma donors in your city"
+          key="title"
+        />
+      </Head>
       <Navbar />
 
       <div className="raiserequest__container">

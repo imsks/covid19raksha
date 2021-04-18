@@ -5,6 +5,7 @@ const db = firebase.firestore();
 const plasmaRequestCollection = db.collection("plasma-requests");
 const addCityRequestCollection = db.collection("add-city-requests");
 const plasmaDonersCollection = db.collection("plasma-doners");
+const removeRequestCollection = db.collection("request-removals");
 
 export const raiseRequestForPlasma = async (requestRaiserDataPayload) => {
   return await plasmaRequestCollection.add({
@@ -21,7 +22,7 @@ export const raiseRequestAddCity = async (requestRequestAddCityDataPayload) => {
 export const raiseRemoveMyRequest = async (
   requestRemoveMyRequestDataPayload
 ) => {
-  return await addCityRequestCollection.add({
+  return await removeRequestCollection.add({
     ...requestRemoveMyRequestDataPayload,
   });
 };

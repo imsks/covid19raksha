@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import Navbar from "components/layouts/Navbar";
 import { FormLabelInputGroup } from "components/sections/FormElements";
@@ -45,6 +46,21 @@ const RemoveMyRequest = () => {
 
   return (
     <main className="requestcontentmanage">
+      <Head>
+        <title>Remove my request | Covid 19 Raksha</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          property="og:title"
+          content="Remove my request | Covid 19 Raksha"
+          key="title"
+        />
+        <meta
+          property="og:description"
+          content="Covid 19 Raksha helps you find plasma donors in your city"
+          key="title"
+        />
+      </Head>
+
       <Navbar />
 
       <div className="requestcontentmanage__container">
