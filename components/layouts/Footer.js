@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -10,7 +11,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer__content__links">
-          <a href="/remove-my-request" className="footer__content__links__item">Remove my request</a>
+          <Link href="/remove-my-request" className="footer__content__links__item">Remove my request</Link>
           <a href="tel:8072937581" className="footer__content__links__item">Contact us</a>
         </div>
       </div>

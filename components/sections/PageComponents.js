@@ -107,7 +107,7 @@ export const RaiseRequestForm = ({
           />
           <p className="paragraph raiserequest__container__content__main__form__paragraph">
             If your city is not listed please request us to add it
-            <Link href="request-add-city"> here</Link>
+            <Link href="/request-add-city"> here</Link>
           </p>
           <FormLabelSelectGroup
             label="Select patient's blood group (If emergency, can leave it blank)"
@@ -178,7 +178,7 @@ export const JoinAsDonerForm = ({
           />
           <p className="paragraph joinasdoner__container__content__main__form__paragraph">
             If your city is not listed please request us to add it
-            <Link href="request-add-city"> here</Link>
+            <Link href="/request-add-city"> here</Link>
           </p>
           <FormLabelSelectGroup
             label="Select patient's blood group (If emergency, can leave it blank)"
