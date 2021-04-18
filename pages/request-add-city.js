@@ -3,6 +3,7 @@ import Navbar from "components/layouts/Navbar";
 import { FormLabelInputGroup } from "components/sections/FormElements";
 import { raiseRequestAddCity } from "client-utils/functions/database.functions";
 import SuccessContainer from "components/sections/SuccessContainer";
+import { RequestAddCityContainer } from "components/sections/PageComponents";
 
 const RequestAddCity = () => {
   const [city, setCity] = useState(null);
@@ -58,7 +59,7 @@ const RequestAddCity = () => {
           ) : (
             <div className="requestcontentmanage__container__content__header">
               <SuccessContainer
-                heading="Your request for adding city has been raised successfully."
+                heading="Your request for adding a city has been raised successfully"
                 paragraph="We'll be adding it ASAP"
                 redirectUrl="/"
               />
@@ -72,43 +73,43 @@ const RequestAddCity = () => {
 
 export default RequestAddCity;
 
-const RequestAddCityContainer = ({
-  handleSetCity,
-  isRequestRaiseButtonClicked,
-  handleRequestAddCityRequest,
-  formError,
-}) => {
-  return (
-    <>
-      <div className="requestcontentmanage__container__content__header">
-        <h3 className="heading-sub requestcontentmanage__container__content__header__heading">
-          Request for adding your city
-        </h3>
-        <p className="paragraph requestcontentmanage__container__content__header__paragraph">
-          If you can't see your city while raising a request, fill this form and
-          we'll try to add this ASAP
-        </p>
-      </div>
+// const RequestAddCityContainer = ({
+//   handleSetCity,
+//   isRequestRaiseButtonClicked,
+//   handleRequestAddCityRequest,
+//   formError,
+// }) => {
+//   return (
+//     <>
+//       <div className="requestcontentmanage__container__content__header">
+//         <h3 className="heading-sub requestcontentmanage__container__content__header__heading">
+//           Request for adding your city
+//         </h3>
+//         <p className="paragraph requestcontentmanage__container__content__header__paragraph">
+//           If you can't see your city while raising a request, fill this form and
+//           we'll try to add this ASAP
+//         </p>
+//       </div>
 
-      <div className="requestcontentmanage__container__content__main">
-        <form className="form requestcontentmanage__container__content__main__form">
-          <FormLabelInputGroup
-            label="Enter your city *"
-            inputType="text"
-            handleInput={handleSetCity}
-            required={true}
-          />
-          <button
-            className="btn btn-md form__submit"
-            onClick={handleRequestAddCityRequest}
-          >
-            {!isRequestRaiseButtonClicked ? "Request add city" : "Requesting"}
-          </button>
-        </form>
-        <p className="form__error requestcontentmanage__container__content__main__form__error">
-          {formError}
-        </p>
-      </div>
-    </>
-  );
-};
+//       <div className="requestcontentmanage__container__content__main">
+//         <form className="form requestcontentmanage__container__content__main__form">
+//           <FormLabelInputGroup
+//             label="Enter your city *"
+//             inputType="text"
+//             handleInput={handleSetCity}
+//             required={true}
+//           />
+//           <button
+//             className="btn btn-md form__submit"
+//             onClick={handleRequestAddCityRequest}
+//           >
+//             {!isRequestRaiseButtonClicked ? "Request add city" : "Requesting"}
+//           </button>
+//         </form>
+//         <p className="form__error requestcontentmanage__container__content__main__form__error">
+//           {formError}
+//         </p>
+//       </div>
+//     </>
+//   );
+// };

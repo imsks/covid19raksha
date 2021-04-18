@@ -30,7 +30,7 @@ const ViewPlasmaDoners = () => {
               View plasma requests
             </h3>
             <p className="paragraph viewplasmausers__container__content__header__paragraph">
-              Search citywise and if anyone is in need, connect with them.
+              Search city-wise and if anyone is in need, connect with them.
             </p>
           </div>
 
@@ -85,7 +85,7 @@ const ViewPlasmaDoners = () => {
                     ) : (
                       <div className="viewplasmausers__container__content__main__results__container__result">
                         <p className="paragraph viewplasmausers__container__content__main__results__container__result__text">
-                          No plasma request found
+                          No plasma requests found
                         </p>
                         <Link href="/raise">
                           <button className="btn btn-md viewplasmausers__container__content__main__results__container__result__button__primary">

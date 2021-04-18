@@ -8,6 +8,7 @@ import {
 import { raiseRequestForPlasma } from "client-utils/functions/database.functions";
 import { bloodGroupNames, cityNames } from "client-utils/constants";
 import SuccessContainer from "components/sections/SuccessContainer";
+import { RaiseRequestForm } from "components/sections/PageComponents";
 
 const RaisePlasmaRequests = () => {
   const [name, setName] = useState(null);
@@ -110,7 +111,7 @@ const RaisePlasmaRequests = () => {
             <div className="raiserequest__container__content__header">
               <SuccessContainer
                 heading="Your request has been raised successfully."
-                paragraph="Let's hope taht someone reaches you out soon."
+                paragraph="Let's hope that someone reaches out soon."
                 redirectUrl="/"
               />
             </div>
@@ -122,74 +123,3 @@ const RaisePlasmaRequests = () => {
 };
 
 export default RaisePlasmaRequests;
-
-const RaiseRequestForm = ({
-  handleSetName,
-  handleSetPrimaryContactNo,
-  handleSetSecondaryContactNo,
-  handleSetCity,
-  handleSetBloodGroup,
-  handleRaiseRequest,
-  formError,
-  isRequestRaiseButtonClicked,
-}) => {
-  return (
-    <>
-      <div className="raiserequest__container__content__header">
-        <h3 className="heading-sub raiserequest__container__content__header__heading">
-          Raise A Plasma Request
-        </h3>
-        <p className="paragraph raiserequest__container__content__header__paragraph">
-          Once request is raised, anyone can see your request and offer you
-          help.
-        </p>
-      </div>
-
-      <div className="raiserequest__container__content__main">
-        <form className="form raiserequest__container__content__main__form">
-          <FormLabelInputGroup
-            label="Enter your name *"
-            inputType="text"
-            handleInput={handleSetName}
-            required={true}
-          />
-          <FormLabelInputGroup
-            label="Enter primary contact no *"
-            inputType="tel"
-            handleInput={handleSetPrimaryContactNo}
-            required={true}
-          />
-          <FormLabelInputGroup
-            label="Enter secondary contact no"
-            inputType="tel"
-            handleInput={handleSetSecondaryContactNo}
-            required={true}
-          />
-          <FormLabelSelectGroup
-            label="Select your city"
-            handleSelectOption={handleSetCity}
-            options={cityNames}
-          />
-          <p className="paragraph raiserequest__container__content__main__form__paragraph">
-            If your city is not listed please request us to add it
-            <Link href="request-add-city"> here</Link>
-          </p>
-          <FormLabelSelectGroup
-            label="Select patient's blood group (If emergency, can leave it blank)"
-            handleSelectOption={handleSetBloodGroup}
-            options={bloodGroupNames}
-          />
-          <button
-            className="btn btn-md form__submit"
-            onClick={handleRaiseRequest}
-          >
-            {!isRequestRaiseButtonClicked ? "Raise request" : "Raising"}
-          </button>
-        </form>
-        <p className="form__error raiserequest__container__content__main__form__error">
-          {formError}
-        </p>
-      </div>
-    </>
-  );
-};

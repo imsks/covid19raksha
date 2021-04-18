@@ -4,6 +4,7 @@ import Navbar from "components/layouts/Navbar";
 import { FormLabelSelectGroup } from "components/sections/FormElements";
 import { searchPlasmaRequestsByCity } from "client-utils/functions/database.functions";
 import Link from "next/link";
+import { PlasmaRequestDataContainer } from "components/sections/PageComponents";
 
 const ViewPlasmaRequests = () => {
   const [allPlasmaRequests, setAllPlasmaRequests] = useState([]);
@@ -62,15 +63,7 @@ const ViewPlasmaRequests = () => {
                           primaryContactNo,
                           secondaryContactNo,
                         } = plasmaRequest;
-
-                        console.log(
-                          name,
-                          bloodGroup,
-                          city,
-                          primaryContactNo,
-                          secondaryContactNo
-                        );
-
+                        
                         return (
                           <PlasmaRequestDataContainer
                             name={name}
@@ -106,44 +99,3 @@ const ViewPlasmaRequests = () => {
 };
 
 export default ViewPlasmaRequests;
-
-const PlasmaRequestDataContainer = ({
-  name,
-  bloodGroup,
-  city,
-  primaryContactNo,
-  secondaryContactNo,
-}) => {
-  return (
-    <div className="viewplasmausers__container__content__main__results__container__items__item">
-      <div className="viewplasmausers__container__content__main__results__container__items__item__content">
-        <h1 className="heading-sub viewplasmausers__container__content__main__results__container__items__item__content__subheading">
-          {name}
-        </h1>
-        {bloodGroup && (
-          <h1 className="heading-main viewplasmausers__container__content__main__results__container__items__item__content__heading">
-            {bloodGroup}
-          </h1>
-        )}
-
-        <h1 className="paragraph viewplasmausers__container__content__main__results__container__items__item__content__paragraph">
-          {city}
-        </h1>
-      </div>
-      <div className="viewplasmausers__container__content__main__results__container__items__item__action">
-        <a href={`tel:${primaryContactNo}`}>
-          <button className="btn btn-md viewplasmausers__container__content__main__results__container__items__item__action__button__primary">
-            Call
-          </button>
-        </a>
-        {secondaryContactNo && (
-          <a href={`tel:${secondaryContactNo}`}>
-            <button className="btn btn-md viewplasmausers__container__content__main__results__container__items__item__action__button">
-              Other contact
-            </button>
-          </a>
-        )}
-      </div>
-    </div>
-  );
-};
