@@ -129,15 +129,15 @@ export const RaiseRequestForm = ({
   );
 };
 
-export const JoinAsDonerForm = ({
+export const JoinAsDonorForm = ({
   handleSetName,
   handleSetPrimaryContactNo,
   handleSetSecondaryContactNo,
   handleSetCity,
   handleSetBloodGroup,
-  handleJoinAsDoner,
+  handleJoinAsDonor,
   formError,
-  isJoinDonerButtonClicked,
+  isJoinDonorButtonClicked,
 }) => {
   return (
     <>
@@ -187,9 +187,9 @@ export const JoinAsDonerForm = ({
           />
           <button
             className="btn btn-md form__submit"
-            onClick={handleJoinAsDoner}
+            onClick={handleJoinAsDonor}
           >
-            {!isJoinDonerButtonClicked ? "Join as doner" : "Joining"}
+            {!isJoinDonorButtonClicked ? "Join as doner" : "Joining"}
           </button>
         </form>
         <p className="form__error joinasdoner__container__content__main__form__error">
@@ -284,7 +284,7 @@ export const RequestAddCityContainer = ({
   );
 };
 
-export const PlasmaDonerDataContainer = ({
+export const PlasmaDonorDataContainer = ({
   name,
   bloodGroup,
   city,

@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { cityNames } from "client-utils/constants";
 import Navbar from "components/layouts/Navbar";
 import { FormLabelSelectGroup } from "components/sections/FormElements";
-import { searchPlasmaDonersByCity } from "client-utils/functions/database.functions";
+import { searchPlasmaDonorsByCity } from "client-utils/functions/database.functions";
 import Link from "next/link";
 
-const ViewPlasmaDoners = () => {
+const ViewPlasmaDonors = () => {
   const [allPlasmaRequests, setAllPlasmaRequests] = useState([]);
   const [isSearchLoaded, setIsSearchLoaded] = useState(false);
 
@@ -14,7 +14,7 @@ const ViewPlasmaDoners = () => {
     const city = event.target.value;
     setIsSearchLoaded(false);
 
-    const responseSearchPlasmaRequests = await searchPlasmaDonersByCity(city);
+    const responseSearchPlasmaRequests = await searchPlasmaDonorsByCity(city);
 
     setAllPlasmaRequests(responseSearchPlasmaRequests);
     setIsSearchLoaded(true);
@@ -25,7 +25,11 @@ const ViewPlasmaDoners = () => {
       <Head>
         <title>View plasma donors | Covid 19 Raksha</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="View plasma donors | Covid 19 Raksha" key="title" />
+        <meta
+          property="og:title"
+          content="View plasma donors | Covid 19 Raksha"
+          key="title"
+        />
         <meta
           property="og:description"
           content="Covid 19 Raksha helps you find plasma donors in your city"
@@ -75,16 +79,8 @@ const ViewPlasmaDoners = () => {
                           secondaryContactNo,
                         } = plasmaRequest;
 
-                        console.log(
-                          name,
-                          bloodGroup,
-                          city,
-                          primaryContactNo,
-                          secondaryContactNo
-                        );
-
                         return (
-                          <PlasmaDonerDataContainer
+                          <PlasmaDonorDataContainer
                             name={name}
                             bloodGroup={bloodGroup}
                             city={city}
@@ -99,15 +95,17 @@ const ViewPlasmaDoners = () => {
                         <p className="paragraph viewplasmausers__container__content__main__results__container__result__text">
                           No plasma requests found
                         </p>
-                        <Link href="/raise">
-                          <button className="btn btn-md viewplasmausers__container__content__main__results__container__result__button__primary">
-                            Raise a request
-                          </button>
-                        </Link>
                       </div>
                     )}
                   </div>
                 )}
+                <div className="viewplasmausers__container__content__main__results__container__result">
+                  <Link href="/raise">
+                    <button className="btn btn-md viewplasmausers__container__content__main__results__container__result__button__primary">
+                      Raise a request
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -117,9 +115,9 @@ const ViewPlasmaDoners = () => {
   );
 };
 
-export default ViewPlasmaDoners;
+export default ViewPlasmaDonors;
 
-const PlasmaDonerDataContainer = ({
+const PlasmaDonorDataContainer = ({
   name,
   bloodGroup,
   city,

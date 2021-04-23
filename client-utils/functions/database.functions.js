@@ -4,7 +4,7 @@ import firebase from "database/firebaseConfig";
 const db = firebase.firestore();
 const plasmaRequestCollection = db.collection("plasma-requests");
 const addCityRequestCollection = db.collection("add-city-requests");
-const plasmaDonersCollection = db.collection("plasma-doners");
+const plasmaDonorsCollection = db.collection("plasma-doners");
 const removeRequestCollection = db.collection("request-removals");
 
 export const raiseRequestForPlasma = async (requestRaiserDataPayload) => {
@@ -27,9 +27,9 @@ export const raiseRemoveMyRequest = async (
   });
 };
 
-export const joinAsPlasmaDoner = async (joiningDonerDataPayload) => {
-  return await plasmaDonersCollection.add({
-    ...joiningDonerDataPayload,
+export const joinAsPlasmaDonor = async (joiningDonorDataPayload) => {
+  return await plasmaDonorsCollection.add({
+    ...joiningDonorDataPayload,
   });
 };
 
@@ -68,8 +68,8 @@ export const searchPlasmaRequestsByCity = async (city) => {
   return searchResultsPayload;
 };
 
-export const searchPlasmaDonersByCity = async (city) => {
-  const searchResponse = await plasmaDonersCollection.where("city", "==", city);
+export const searchPlasmaDonorsByCity = async (city) => {
+  const searchResponse = await plasmaDonorsCollection.where("city", "==", city);
 
   const searchResultsPayload = [];
 

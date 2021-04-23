@@ -2,47 +2,47 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Navbar from "components/layouts/Navbar";
 import SuccessContainer from "components/sections/SuccessContainer";
-import { joinAsPlasmaDoner } from "client-utils/functions/database.functions";
-import { JoinAsDonerForm } from "components/sections/PageComponents";
+import { joinAsPlasmaDonor } from "client-utils/functions/database.functions";
+import { JoinAsDonorForm } from "components/sections/PageComponents";
 
-const RegisterDoner = () => {
+const RegisterDonor = () => {
   const [name, setName] = useState(null);
   const [primaryContactNo, setPrimaryContactNo] = useState("");
   const [secondaryContactNo, setSecondaryContactNo] = useState(null);
   const [city, setCity] = useState(null);
   const [bloodGroup, setBloodGroup] = useState("NA");
   const [formError, setFormError] = useState(null);
-  const [isJoinDonerButtonClicked, setIsJoinDonerButtonClicked] = useState(
+  const [isJoinDonorButtonClicked, setIsJoinDonorButtonClicked] = useState(
     false
   );
-  const [isDonerJoined, setIsDonerJoined] = useState(false);
+  const [isDonorJoined, setIsDonorJoined] = useState(false);
 
-  const handleJoinAsDoner = async (event) => {
+  const handleJoinAsDonor = async (event) => {
     event.preventDefault();
     setFormError(null);
-    setIsDonerJoined(false);
-    setIsJoinDonerButtonClicked(true);
+    setIsDonorJoined(false);
+    setIsJoinDonorButtonClicked(true);
 
     // Check if all fields are filled correctly
     if (!name) {
       setFormError("Please check your name");
-      setIsJoinDonerButtonClicked(false);
+      setIsJoinDonorButtonClicked(false);
       return;
     }
 
     if (!primaryContactNo || primaryContactNo.split("").length !== 10) {
       setFormError("Please check your primary contact no");
-      setIsJoinDonerButtonClicked(false);
+      setIsJoinDonorButtonClicked(false);
       return;
     }
 
     if (!city) {
       setFormError("Please provide your city");
-      setIsJoinDonerButtonClicked(false);
+      setIsJoinDonorButtonClicked(false);
       return;
     }
 
-    const joiningDonerDataPayload = {
+    const joiningDonorDataPayload = {
       name,
       primaryContactNo,
       secondaryContactNo,
@@ -51,14 +51,14 @@ const RegisterDoner = () => {
       joinedOn: new Date(Date.now()),
     };
 
-    const requestJoinDonerResponse = await joinAsPlasmaDoner(
-      joiningDonerDataPayload
+    const requestJoinDonorResponse = await joinAsPlasmaDonor(
+      joiningDonorDataPayload
     );
 
-    if (requestJoinDonerResponse) setIsDonerJoined(true);
+    if (requestJoinDonorResponse) setIsDonorJoined(true);
     else {
       setFormError("Something went wrong. Please try again");
-      setIsJoinDonerButtonClicked(false);
+      setIsJoinDonorButtonClicked(false);
     }
   };
 
@@ -99,16 +99,16 @@ const RegisterDoner = () => {
 
       <div className="joinasdoner__container">
         <div className="joinasdoner__container__content">
-          {!isDonerJoined ? (
-            <JoinAsDonerForm
+          {!isDonorJoined ? (
+            <JoinAsDonorForm
               handleSetName={handleSetName}
               handleSetPrimaryContactNo={handleSetPrimaryContactNo}
               handleSetSecondaryContactNo={handleSetSecondaryContactNo}
               handleSetCity={handleSetCity}
               handleSetBloodGroup={handleSetBloodGroup}
-              handleJoinAsDoner={handleJoinAsDoner}
+              handleJoinAsDonor={handleJoinAsDonor}
               formError={formError}
-              isJoinDonerButtonClicked={isJoinDonerButtonClicked}
+              isJoinDonorButtonClicked={isJoinDonorButtonClicked}
             />
           ) : (
             <div className="joinasdoner__container__content__header">
@@ -126,4 +126,4 @@ const RegisterDoner = () => {
   );
 };
 
-export default RegisterDoner;
+export default RegisterDonor;
